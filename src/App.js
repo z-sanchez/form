@@ -4,45 +4,6 @@ import planet from "./planet.png";
 import "animate.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  endAnimation(e) {
-    e.stopPropagation();
-    const planetElement = document.getElementById("planet");
-    planetElement.classList.remove(
-      "animate__animated",
-      "animate__bounce",
-      "animate__slower"
-    );
-  }
-
-  repeatPlanetAnima() {
-    const planetElement = document.getElementById("planet");
-    planetElement.classList.add(
-      "animate__animated",
-      "animate__bounce",
-      "animate__slower"
-    );
-
-    planetElement.addEventListener("animationend", this.endAnimation, {
-      once: true,
-    });
-  }
-
-  start() {
-    const planetElement = document.getElementById("planet");
-    console.log(planetElement);
-
-    let i = 1;
-
-    while (i != 0) {
-      console.log(planetElement);
-      this.repeatPlanetAnima();
-    }
-  }
-
   render() {
     return (
       <div id="wrapper">
@@ -70,7 +31,12 @@ class App extends React.Component {
               <input id="DOB" name="DOB" type="text"></input>
             </div>
 
-            <button id="submit">Submit</button>
+            <button
+              id="submit"
+              className="animate__animated animate__headShake animate__delay-5s"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
